@@ -1,0 +1,38 @@
+.profile__add-btn {
+  position: relative;
+  width: 150px;
+  height: 50px;
+  background-color: transparent;
+  border: 2px solid #fff;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: opacity 0.3s linear;
+}
+
+.profile__add-btn:hover {
+  opacity: 0.6;
+}
+
+/* плюсик на кнопке */
+.profile__add-btn::before,
+.profile__add-btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 20px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 1px;
+}
+
+.profile__add-btn::after {
+  transform: rotate(90deg);
+}
+
+@media (max-width: 320px) {
+  .profile__add-btn {
+    width: 100%;
+  }
+}
