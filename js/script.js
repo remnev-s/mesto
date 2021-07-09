@@ -65,7 +65,7 @@ function formSubmitHandler(evt) {
   infoName.textContent = nameInput.value;
   infoDescription.textContent = jobInput.value;
 
-  infoPopup.classList.toggle("popup_opened");
+  closePopup(infoPopup);
 }
 formElement.addEventListener("submit", formSubmitHandler);
 /* ---------------------------------------------------------------------------- */
@@ -134,15 +134,14 @@ function createCard(item) {
     image.alt = item.name;
     imageCaption.textContent = item.name;
 
-    // popupImg.classList.add("popup_opened");
     openPopup(popupImg);
-    imagePopupClose.addEventListener("click", function () {
-      // popupImg.classList.remove("popup_opened");
-      closePopup(popupImg);
-    });
   });
   return listElement; //вернул готовую карточку через return
 }
+// обработчик закрытия картинок
+imagePopupClose.addEventListener("click", function () {
+  closePopup(popupImg);
+});
 
 // функция добавления карточку на страницу
 function addCard(item, container) {
@@ -163,6 +162,6 @@ function cardFormSubmitHandler(evt) {
     templateList
   );
   document.querySelector(".popup__form").reset();
-  cardsPopup.classList.toggle("popup_opened");
+  closePopup(cardsPopup);
 }
 formAddNewCard.addEventListener("submit", cardFormSubmitHandler);
